@@ -1,0 +1,28 @@
+CONTAINERLAB COMMANDS
+
+containerlab deploy -t test.yml
+containerlab redeploy -t test.yml
+containerlab destroy -t test.yml
+
+# redeploy will update an existing lab with lab configuration changes, while retaining the device configurations
+
+DOCKER COMMANDS
+
+# connect to XRd container
+# note the container-specific shell 
+# FRR use "vtysh"
+
+docker exec -it clab-test2-xrd3 /pkg/bin/xr_cli.sh
+
+# How to exit a container's shell
+
+CTRL P, CTRL Q
+
+# how to validate the image name that MUST match the name referenced in the lab configuraiton file
+
+docker images
+
+
+
+
+
