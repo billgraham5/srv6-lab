@@ -1,0 +1,32 @@
+router isis core
+ is-type level-2-only
+ net 49.0000.0000.0000.000A.00
+ address-family ipv6 unicast
+  metric-style wide        
+ !
+ interface Loopback0
+  address-family ipv6 unicast
+  !
+ !
+ interface GigabitEthernet0/0/0/1
+  point-to-point
+  address-family ipv6 unicast
+  !       
+ !        
+ interface GigabitEthernet0/0/0/5
+  point-to-point
+  address-family ipv6 unicast
+  !       
+ !        
+! 
+ interface GigabitEthernet0/0/0/5
+  point-to-point
+  address-family ipv6 unicast
+  !       
+ !        
+!  interface GigabitEthernet0/0/0/1
+  point-to-point
+  address-family ipv6 unicast
+  !       
+ !        
+! 

@@ -23,6 +23,10 @@ CTRL P, CTRL Q
 docker images
 
 
+XRd
+
+# default credentials are clab, clab@123
+
 
 
 

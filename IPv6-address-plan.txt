@@ -1,0 +1,40 @@
+# Reminder of IPv6 address types
+
+Address type                IPv6 prefix         Specification
+Unspecified                 ::/128
+Loopback                    ::1/128
+Multicast                   ff00::/8            RFC 4291
+Link-Local Unicast (LLA)    fe80::/10
+Global Unicast (GUA)        ”everything else”
+SRv6 SIDs                   5f00::/16           draft-ietf-6man-sids
+Unique Local (ULA)          fc00::/7            RFC 4193
+
+# We are using the block of fc00::/7 for SRv6 Locators
+
+
+
+# Loopbacks
+# Decision was made to use the decimal router number and not the literal hexidecimal value
+# Segment Locator is fc00:0:X::/48
+
+R1      fc00:0:1::1/128 
+R2      fc00:0:2::1/128 
+R3      fc00:0:3::1/128 
+R4      fc00:0:4::1/128 
+R5      fc00:0:5::1/128 
+R6      fc00:0:6::1/128 
+R7      fc00:0:7::1/128 
+R8      fc00:0:8::1/128 
+R9      fc00:0:9::1/128 
+R10     fc00:0:10::1/128 
+R11     fc00:0:11::1/128 
+R12     fc00:0:12::1/128 
+R13     fc00:0:13:1/128 
+R14     fc00:0:14::1/128 
+R15     fc00:0:15::1/128 
+R16     fc00:0:16::1/128 
+R17     fc00:0:17::1/128 
+R18     fc00:0:18::1/128 
+R19     fc00:0:19::1/128 
+
+
