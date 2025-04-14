@@ -1,0 +1,46 @@
+name: lab1
+
+topology:
+  nodes:
+    r1:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    r2:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    r5:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    r6:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    r9:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    r10:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    r13:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    r14:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+  links:
+    - endpoints: ["r1:Gi0-0-0-4","r5:Gi0-0-0-3"]
+    - endpoints: ["r1:Gi0-0-0-3","r6:Gi0-0-0-3"]
+    - endpoints: ["r2:Gi0-0-0-4","r5:Gi0-0-0-4"]
+    - endpoints: ["r2:Gi0-0-0-3","r6:Gi0-0-0-4"]
+    - endpoints: ["r2:Gi0-0-0-3","r6:Gi0-0-0-4"]    
+    - endpoints: ["r5:Gi0-0-0-5","r6:Gi0-0-0-5"]     
+    - endpoints: ["r5:Gi0-0-0-1","r9:Gi0-0-0-1"]    
+    - endpoints: ["r6:Gi0-0-0-1","r10:Gi0-0-0-1"]        
+    - endpoints: ["r9:Gi0-0-0-5","r10:Gi0-0-0-5"] 
