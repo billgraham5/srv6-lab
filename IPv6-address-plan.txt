@@ -20,32 +20,31 @@ Unique Local (ULA)          fc00::/7            RFC 4193
 # A = algorithm 
 # N = node (router)
 
-R1      fc00:0:1::1/128 
-R2      fc00:0:2::1/128 
-R3      fc00:0:3::1/128 
-R4      fc00:0:4::1/128 
-R5      fc00:0:5::1/128 
-R6      fc00:0:6::1/128 
-R7      fc00:0:7::1/128 
-R8      fc00:0:8::1/128 
-R9      fc00:0:9::1/128 
-R10     fc00:0:10::1/128 
-R11     fc00:0:11::1/128 
-R12     fc00:0:12::1/128 
-R13     fc00:0:13:1/128 
-R14     fc00:0:14::1/128 
-R15     fc00:0:15::1/128 
-R16     fc00:0:16::1/128 
-R17     fc00:0:17::1/128 
-R18     fc00:0:18::1/128 
-R19     fc00:0:19::1/128 
+Tokyo       fc00:0:1::1/128 
+London      fc00:0:2::1/128 
+Hong Kong   fc00:0:3::1/128 
+San Jose    fc00:0:4::1/128 
+Montreal    fc00:0:5::1/128 
+Amsterdam   fc00:0:6::1/128 
+Denver      fc00:0:7::1/128 
+Sao Paulo   fc00:0:8::1/128 
 
 
-# algos and LOCATORS
+# Algos and LOCATORS
 
-# 0   = MAIN  -- LOCATOR = fc00:0:8::/48
-# 140 = LEFT  -- LOCATOR = fc00:1:8::/48
-# 141 = RIGHT -- LOCATOR = fc00:2:8::/48
+# 0   = MAIN  -- LOCATOR = fc00:0:8::/48 -- default IGP algorithm
+# 140 = LEFT  -- LOCATOR = fc00:1:8::/48 -- Left network slice
+# 141 = RIGHT -- LOCATOR = fc00:2:8::/48 -- Right network slice
+
+
+# BGP RIDs
+# Reminder: BGP requirees a 32-bit RID
+# This lab does not include IPv4 based loopback addresses
+# Manually configure your RID or BGP will not work
+
+Tokyo           1.1.1.1
+London          2.2.2.2
+Sao Paulo       8.8.8.8
 
 
 # Sample configurations
