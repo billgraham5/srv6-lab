@@ -1,0 +1,115 @@
+Global IP Overlay Services – BGP-Free Core
+
+
+router bgp 64512
+ bgp router-id 172.16.1.1
+ address-family ipv4 unicast
+  segment-routing srv6
+   locator MAIN
+   alloc mode per-vrf
+  !
+  redistribute connected
+ !
+ neighbor-group INTERNAL
+  remote-as 64512
+  update-source Loopback0
+  address-family ipv4 unicast
+   next-hop-self
+   route-policy PASS in
+   encapsulation-type srv6
+   route-policy PASS out
+  !
+ !
+ neighbor fc00:0:10::1
+  use neighbor-group INTERNAL
+ !
+!
+route-policy PASS
+  pass
+end-policy
+!
+
+
+
+route-policy per_prefix_locator
+  if destination in (10.30.30.30/32) then
+    set srv6-alloc-mode per-vrf locator RIGHT
+  else
+    if destination in (10.33.33.33/32) then
+      set srv6-alloc-mode per-vrf locator LEFT
+    else
+      set srv6-alloc-mode per-vrf locator MAIN
+    endif
+  endif
+end-policy
+!
+
+
+
+
+
+route-policy export
+  if destination in (0.0.0.0/0) then
+    set next-hop fc00:0:ffff::f
+    done
+  endif
+  set next-hop self
+end-policy
+
+interface Loopback1
+ ipv6 address fc00:0:ffff::f/128
+!
+
+
+prefix-set DEFAULT-ROUTE
+  0.0.0.0/0
+end-set
+!
+
+route-policy ALLOW-DEFAULT
+  if destination in DEFAULT-ROUTE then
+    pass
+  endif
+end-policy
+!
+
+!
+
+RP/0/RP0/CPU0:london#sh run router bgp
+Thu Apr 17 16:17:38.794 UTC
+router bgp 64512
+ bgp router-id 2.2.2.2
+ ibgp policy out enforce-modifications
+ address-family ipv4 unicast
+  segment-routing srv6
+   alloc mode route-policy per_prefix_locator
+  !
+  network 0.0.0.0/0 route-policy ALLOW-DEFAULT
+ !
+ neighbor-group INTERNAL
+  remote-as 64512
+  update-source Loopback0
+  address-family ipv4 unicast
+   next-hop-self
+   route-policy PASS in
+   encapsulation-type srv6
+   route-policy export out
+   default-originate
+   soft-reconfiguration inbound always
+  !
+ !
+ neighbor 10.2.2.2
+  remote-as 2
+  address-family ipv4 unicast
+   route-policy PASS in
+   route-policy PASS out
+   soft-reconfiguration inbound always
+  !
+ !
+ neighbor fc00:0:1::1
+  use neighbor-group INTERNAL
+ !
+ neighbor fc00:0:8::1
+  use neighbor-group INTERNAL
+ !
+!
