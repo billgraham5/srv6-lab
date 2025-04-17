@@ -9,13 +9,16 @@ Global Unicast (GUA)        ”everything else”
 SRv6 SIDs                   5f00::/16           draft-ietf-6man-sids
 Unique Local (ULA)          fc00::/7            RFC 4193
 
-# We are using the block of fc00::/7 for SRv6 Locators
+# We are using the block of fc00::/7 for SRv6 Locators in this lab
+# All other links are LLA - not configured statically 
 
 
 
 # Loopbacks
 # Decision was made to use the decimal router number and not the literal hexidecimal value
-# Segment Locator is fc00:0:X::/48
+# Segment Locator is fc00:A:N::/48
+# A = algorithm 
+# N = node (router)
 
 R1      fc00:0:1::1/128 
 R2      fc00:0:2::1/128 
@@ -38,7 +41,61 @@ R18     fc00:0:18::1/128
 R19     fc00:0:19::1/128 
 
 
-# IPv4 loopbacks for IBGP
+# algos and LOCATORS
 
-R1      172.16.1.1/32
-R10     172.16.1.10/32
+# 0   = MAIN  -- LOCATOR = fc00:0:8::/48
+# 140 = LEFT  -- LOCATOR = fc00:1:8::/48
+# 141 = RIGHT -- LOCATOR = fc00:2:8::/48
+
+
+# Sample configurations
+
+segment-routing
+ traffic-eng
+  srv6
+  !
+ !
+ srv6
+  encapsulation
+   source-address fc00:0:8::1
+  !
+  locators
+   locator LEFT
+    micro-segment behavior unode psp-usd
+    prefix fc00:1:8::/48
+    algorithm 140
+   !
+   locator MAIN
+    micro-segment behavior unode psp-usd
+    prefix fc00:0:8::/48
+   !
+   locator RIGHT
+    micro-segment behavior unode psp-usd
+    prefix fc00:2:8::/48
+    algorithm 141
+   !      
+  !       
+ !        
+!         
+
+router isis core
+ is-type level-2-only
+ net 49.0000.0000.0000.0008.00
+ address-family ipv6 unicast
+  metric-style wide
+  segment-routing srv6
+   locator LEFT
+   !
+   locator MAIN
+   !
+   locator RIGHT
+   !
+  !
+ !
+ flex-algo 140
+  advertise-definition
+ !
+ flex-algo 141
+  advertise-definition
+ !
+
