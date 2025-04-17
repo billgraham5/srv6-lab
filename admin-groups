@@ -1,0 +1,30 @@
+# admin-groups
+# link affinity
+
+segment-routing
+ traffic-eng
+  affinity-map
+   name EAST bit-position 1
+   name WEST bit-position 2
+   name COMMON bit-position 0
+  !       
+
+
+segment-routing
+ traffic-eng
+  interface GigabitEthernet0/0/0/0
+   affinity
+    name EAST
+   !
+  !
+  interface GigabitEthernet0/0/0/1
+   affinity
+    name EAST
+   !
+  !
+  interface GigabitEthernet0/0/0/2
+   affinity
+    name COMMON
+   !
+  !
+
