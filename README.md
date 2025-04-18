@@ -1,6 +1,6 @@
 # SRv6 TOI
 
-This topology is built on Containerlabs and is intended to be an introduction to SRv6.  The following documentation will guide you on the implementation:
+This topology is built on Containerlabs and is intended to be a time efficient way to learn about SRv6.  The following documentation will guide you on the implementation:
 
 - Implementing Containerlabs for XRd and SONiC (todo)
 - Containerlabs CLI Cheat Sheet 
