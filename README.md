@@ -12,7 +12,7 @@ This topology is built on Containerlabs and is intended to be a time efficient w
 - Administrative Groups (Link Affinity) for SRv6 TE Policy
 - Anycast-based BGP Routing (Egress Engineering for transit services)
 
-In addition, the Containerlabs configuration file has been shared.  You will need to have a valid Cisco service contract to download XRd.  You can alternatively use SONiC or FRR, although functionality will vary.  SRv6 is an architecture that leverages a collection of hundreds of individual features.  Many are standardized but not all feature are implemented on all vendor implementations.
+In addition, the Containerlabs configuration file has been shared.  You will need to have a valid Cisco service contract to download XRd.  You can alternatively use SONiC or FRR, although functionality will vary.  SRv6 is an architecture that leverages a collection of hundreds of individual features.  Many are standardized but not all features are implemented on all vendor implementations.
 
 A topology diagram is provided for each major use case.  
 
