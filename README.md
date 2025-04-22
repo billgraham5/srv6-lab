@@ -16,6 +16,8 @@ In addition, the Containerlabs configuration file has been shared.  You will nee
 
 A topology diagram is provided for each major use case.  
 
+https://github.com/billgraham5/srv6-lab/blob/main/standard_topo.png
+
 ## Use Case 1
 
 Use case 1 leverages different flexible algorithms to implement a form of network slicing.  This scenario does not contain any SR Traffic Engineering policy, as it is not necessary to meet the objective.  Each router participates in one or more flex algos.  In this topology, there is a default MAIN Locator (algo 0), a LEFT Locator (algo 140), and RIGHT locator (algo 141). 
