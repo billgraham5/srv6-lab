@@ -1,0 +1,24 @@
+SYSTEM CHANGES
+
+From https://containerlab.dev/manual/kinds/xrd/
+
+sudo sysctl -w fs.inotify.max_user_instances=256000
+sudo sysctl -w fs.inotify.max_user_watches=256000
+
+echo -e "fs.inotify.max_user_instances=256000\nfs.inotify.max_user_watches=256000" | sudo tee -a /etc/sysctl.conf
+
+DOCKER IMAGE IMPORT
+
+Untar the image from cisco.com
+
+sudo tar -xvf xrd-control-plane-container-x86.25.1.1.tgz
+
+sudo docker load -i xrd-control-plane-container-x64.dockerv1.tgz
+
+a5c3b001fb69: Loading layer [==================================================>]  1.312GB/1.312GB
+Loaded image: ios-xr/xrd-control-plane:25.1.1
+
+sudo docker image ls
+REPOSITORY                 TAG       IMAGE ID       CREATED       SIZE
+ios-xr/xrd-control-plane   25.1.1    d7b0eb65bd82   5 weeks ago   1.28GB
+

@@ -239,7 +239,7 @@ router isis core
 
 router isis core
 
- flex-algo 141
+ flex-algo 140
   advertise-definition
  !
 
@@ -257,10 +257,7 @@ router isis core
 
 
 segment-routing
- traffic-eng
-  srv6
-  !
- !
+
  srv6
   locators
    locator LEFT
@@ -270,13 +267,131 @@ segment-routing
    !
    locator MAIN
     micro-segment behavior unode psp-usd
-    prefix fc00:0:8::/
+    prefix fc00:0:8::/40
    !
    locator RIGHT
     micro-segment behavior unode psp-usd
-    prefix fc00:2:8::/48
+    prefix fc00:2:8::/64
     algorithm 141
    !
   !
  !
 !
+
+
+route-policy per_prefix_locator
+  if destination in (10.3.3.0/24) then
+    set srv6-alloc-mode per-vrf locator RIGHT
+  else
+    if destination in (10.33.33.33/32) then
+      set srv6-alloc-mode per-vrf locator LEFT
+    endif
+  endif
+end-policy
+!
+
+
+route-policy per_prefix_locator
+  if destination in (0.0.0.0/0) then
+    set srv6-alloc-mode per-vrf locator LEFT
+  endif
+  if destination in (10.1.1.0/24) then
+    set srv6-alloc-mode per-vrf locator LEFT
+  endif
+  set srv6-alloc-mode per-vrf locator MAIN
+end-policy
+!
+
+route-policy export
+  if destination in (10.1.1.0/24) then
+    set next-hop fc00:0:ffff::f
+    pass
+  endif
+  if destination in (0.0.0.0/0) then
+    set next-hop fc00:0:ffff::f
+    pass
+  endif
+  set next-hop self
+end-policy
+!
+
+
+route-policy export
+  if destination in (10.1.1.0/24) then
+    set next-hop fc00:0:ffff::f
+    pass
+  endif
+  if destination in (0.0.0.0/0) then
+    set next-hop fc00:0:ffff::f
+    pass
+  endif
+  set next-hop self
+end-policy
+
+
+route-policy export
+  if destination in (0.0.0.0/0) then
+    set next-hop fc00:0:ffff::f
+  endif
+
+!
+
+Thu Apr 17 15:05:05.248 UTC
+
+
+route-policy export
+  if destination in (0.0.0.0/0) then
+    set next-hop fc00:0:ffff::f
+    done
+  endif
+  set next-hop self
+end-policy
+
+interface Loopback1
+ ipv6 address fc00:0:ffff::f/128
+!
+
+
+prefix-set DEFAULT-ROUTE
+  0.0.0.0/0
+end-set
+!
+
+route-policy ALLOW-DEFAULT
+  if destination in DEFAULT-ROUTE then
+    pass
+  endif
+end-policy
+!
+
+
+route-policy per_prefix_locator
+  if destination in (0.0.0.0/0) then
+    set srv6-alloc-mode per-vrf locator RIGHT
+  endif
+  if destination in (10.2.2.0/24) then
+    set srv6-alloc-mode per-vrf locator RIGHT
+  endif
+  set srv6-alloc-mode per-vrf locator MAIN
+end-policy
+!
+
+router bgp 64512
+ ibgp policy out enforce-modifications
+ address-family ipv4 unicast
+  network 0.0.0.0/0 route-policy ALLOW-DEFAULT
+
+
+route-policy per_prefix_locator
+  if destination in (10.30.30.30/32) then
+    set srv6-alloc-mode per-vrf locator RIGHT
+  else
+    if destination in (10.33.33.33/32) then
+      set srv6-alloc-mode per-vrf locator LEFT
+    else
+      set srv6-alloc-mode per-vrf locator MAIN
+    endif
+  endif
+end-policy
+!
+

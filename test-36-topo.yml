@@ -1,0 +1,66 @@
+name: srv6-standard-topo
+
+topology:
+  nodes:
+    tokyo:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    london:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    san-jose:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    montreal:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    hong-kong:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    denver:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    amsterdam:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    sao-paulo:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    ce1:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    ce2:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    ce3:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+  
+   links:
+    - endpoints: ["tokyo:Gi0-0-0-0","london:Gi0-0-0-0"]
+    - endpoints: ["tokyo:Gi0-0-0-1","hong-kong:Gi0-0-0-1"]
+    - endpoints: ["tokyo:Gi0-0-0-4","ce1:Gi0-0-0-4"]
+    - endpoints: ["london:Gi0-0-0-1","amsterdam:Gi0-0-0-1"]
+    - endpoints: ["london:Gi0-0-0-4","ce2:Gi0-0-0-4"]
+    - endpoints: ["hong-kong:Gi0-0-0-0","san-jose:Gi0-0-0-0"]
+    - endpoints: ["hong-kong:Gi0-0-0-2","sao-paulo:Gi0-0-0-2"]
+    - endpoints: ["san-jose:Gi0-0-0-2","montreal:Gi0-0-0-2"]
+    - endpoints: ["san-jose:Gi0-0-0-3","denver:Gi0-0-0-3"]
+    - endpoints: ["montreal:Gi0-0-0-0","amsterdam:Gi0-0-0-0"]
+    - endpoints: ["montreal:Gi0-0-0-1","denver:Gi0-0-0-1"]
+    - endpoints: ["amsterdam:Gi0-0-0-3","sao-paulo:Gi0-0-0-3"]
+    - endpoints: ["denver:Gi0-0-0-0","sao-paulo:Gi0-0-0-0"]
+    - endpoints: ["sao-paulo:Gi0-0-0-4","ce3:Gi0-0-0-4"]
+    - endpoints: ["london:Gi0-0-0-3","montreal:Gi0-0-0-3"]
+    - endpoints: ["tokyo:Gi0-0-0-2","san-jose:Gi0-0-0-1"]
