@@ -2,7 +2,7 @@
 
 This topology is built on Containerlabs and is intended to be a time efficient way to learn about SRv6.  The following documentation will guide you on the implementation:
 
-- Implementing Containerlabs for XRd and SONiC (todo)
+- Implementing Containerlabs for XRd
 - Containerlabs CLI Cheat Sheet 
 - IPv6 addressing planning for SRv6
 - Interface configuration for SRv6
