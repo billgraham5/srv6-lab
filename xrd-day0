@@ -7,6 +7,9 @@ sudo sysctl -w fs.inotify.max_user_watches=256000
 
 echo -e "fs.inotify.max_user_instances=256000\nfs.inotify.max_user_watches=256000" | sudo tee -a /etc/sysctl.conf
 
+NOTE:  This change was needed to support 36 XRd nodes.
+
+
 DOCKER IMAGE IMPORT
 
 Untar the image from cisco.com
