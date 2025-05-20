@@ -15,7 +15,7 @@ Unique Local (ULA)          fc00::/7            RFC 4193
 
 
 # Loopbacks
-# Decision was made to use the decimal router number and not the literal hexidecimal value
+# Decision was made to use the decimal router number and not the literal hexadecimal value
 # Segment Locator is fc00:A:N::/48
 # A = algorithm 
 # N = node (router)
@@ -38,7 +38,7 @@ Sao Paulo   fc00:0:8::1/128
 
 
 # BGP RIDs
-# Reminder: BGP requirees a 32-bit RID
+# Reminder: BGP requires a 32-bit RID
 # This lab does not include IPv4 based loopback addresses
 # Manually configure your RID or BGP will not work
 
