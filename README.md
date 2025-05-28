@@ -16,7 +16,7 @@ In addition, the Containerlabs configuration file has been shared.  You will nee
 
 A topology diagram is provided for each major use case.  
 
-https://github.com/billgraham5/srv6-lab/blob/main/standard_topo.png
+[https://github.com/billgraham5/srv6-lab/blob/main/standard_topo.png](https://github.com/billgraham5/srv6-lab/blob/main/small-lab/standard_topo.png)
 
 ## Small Lab - Use Case 1
 
