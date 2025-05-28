@@ -18,7 +18,7 @@ A topology diagram is provided for each major use case.
 
 https://github.com/billgraham5/srv6-lab/blob/main/standard_topo.png
 
-## Use Case 1
+## Small Lab - Use Case 1
 
 Use case 1 leverages different flexible algorithms to implement a form of network slicing.  This scenario does not contain any SR Traffic Engineering policy, as it is not necessary to meet the objective.  Each router participates in one or more flex algos.  In this topology, there is a default MAIN Locator (algo 0), a LEFT Locator (algo 140), and RIGHT locator (algo 141). 
 
@@ -28,7 +28,7 @@ If a prefix is mapped to Locator LEFT, it will only be able to use the routers t
 
 This topology is built upon the Global IP Overlay Services scenario.  This expands on the architecture developed for MPLS that is referred to as a "BGP Free Core".  It is similar to the routing paradigm where core routers in L3VPN deployments rarely ever carry inet-vpn (VPNv4) prefixes.  In this case, the address family is simply the global or main routing table for the IPv4 unicast AFI.  If the main routing table only carries the public internet routing table, this means the core routers will not need to carry any of these prefixes.  The MPLS implementation tunnels traffic via MPLS whereas the SRv6 implementation tunnels traffic simply inside of IPv6 tunnels.
 
-## Use Case 2
+## Small Lab - Use Case 2
 
 Use case 2 does not require more than the default flexible algorithm.  In this case, SRv6 Traffic Engineering policy is defined to match traffic at ingress and apply an end-to-end TE policy.
 
@@ -36,3 +36,6 @@ Static policies configured on ingress to every egress node can be configured.  A
 
 In this scenario, Administrative Groups (Link Affinity) is used.  Link affinity was originally a MPLS concept that relies on "coloring" the links in your network and defining a policy that requires or prevents certain link colors from being used for the matching traffic.
 
+## Large Lab
+
+In progress
