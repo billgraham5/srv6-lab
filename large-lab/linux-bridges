@@ -1,11 +1,18 @@
 
+# Create the bridge
 sudo ip link add name br1 type bridge
+
+# Create the virtual ethernet interface
 sudo ip tuntap add name vif1-br1 mode tap
+
+# Bring it up
 sudo ip link set vif1-br1 up
+
+# Link the virtual interface to the bridge
 sudo ip link set vif1-br1 master br1
 
 
-
+# edit, copy, and paste to create the topology
 
 sudo ip link add name br2 type bridge
 sudo ip tuntap add name vif1-br2 mode tap
@@ -39,10 +46,6 @@ sudo ip link set vif6-br3 master br3
 sudo ip tuntap add name vif7-br3 mode tap
 sudo ip link set vif7-br3 up
 sudo ip link set vif7-br3 master br3
-
-
-
-
 sudo ip tuntap add name vif1-br4 mode tap
 sudo ip link set vif1-br4 up
 sudo ip link set vif1-br4 master br4
