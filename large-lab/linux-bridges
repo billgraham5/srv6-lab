@@ -14,6 +14,8 @@ sudo ip link set vif1-br1 up
 # Link the virtual interface to the bridge
 sudo ip link set vif1-br1 master br1
 
+# Assign an IP address to a bridge, if needed for testing
+ sudo ip addr add 10.1.1.2/24 dev br1
 
 # edit, copy, and paste to create the topology
 
