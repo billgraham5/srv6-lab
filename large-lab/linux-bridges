@@ -17,6 +17,8 @@ sudo ip link set vif1-br1 master br1
 # Assign an IP address to a bridge, if needed for testing
  sudo ip addr add 10.1.1.2/24 dev br1
 
+# install brctl for additional CLI visibility
+
 # edit, copy, and paste to create the topology
 
 sudo ip link add name br2 type bridge
