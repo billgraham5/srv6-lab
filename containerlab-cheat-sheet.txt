@@ -45,3 +45,13 @@ ip route add default via 10.10.10.1
 
 
 sudo cp  --parents ./clab-lab1/r*/xr-storage/config/config/running/alternate_cfg/router.cfg cfg-bak/
+
+
+sudo ip link add name br1 type bridge
+sudo ip link set br1 up
+sudo ip link add name br2 type bridge
+sudo ip link set br2 up
+sudo ip link add name br3 type bridge
+sudo ip link set br3 up
+sudo ip link add name br4 type bridge
+sudo ip link set br4 up

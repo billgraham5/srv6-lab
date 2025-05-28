@@ -1,0 +1,66 @@
+
+sudo ip link add name br1 type bridge
+sudo ip tuntap add name vif1-br1 mode tap
+sudo ip link set vif1-br1 up
+sudo ip link set vif1-br1 master br1
+
+
+
+
+sudo ip link add name br2 type bridge
+sudo ip tuntap add name vif1-br2 mode tap
+sudo ip link set vif1-br2 up
+sudo ip link set vif1-br2 master br2
+sudo ip tuntap add name vif2-br2 mode tap
+sudo ip link set vif2-br2 up
+sudo ip link set vif2-br2 master br2
+sudo ip tuntap add name vif3-br2 mode tap
+sudo ip link set vif3-br2 up
+sudo ip link set vif3-br2 master br2
+
+sudo ip tuntap add name vif1-br3 mode tap
+sudo ip link set vif1-br3 up
+sudo ip link set vif1-br3 master br3
+sudo ip tuntap add name vif2-br3 mode tap
+sudo ip link set vif2-br3 up
+sudo ip link set vif2-br3 master br3
+sudo ip tuntap add name vif3-br3 mode tap
+sudo ip link set vif3-br3 up
+sudo ip link set vif3-br3 master br3
+sudo ip tuntap add name vif4-br3 mode tap
+sudo ip link set vif4-br3 up
+sudo ip link set vif4-br3 master br3
+sudo ip tuntap add name vif5-br3 mode tap
+sudo ip link set vif5-br3 up
+sudo ip link set vif5-br3 master br3
+sudo ip tuntap add name vif6-br3 mode tap
+sudo ip link set vif6-br3 up
+sudo ip link set vif6-br3 master br3
+sudo ip tuntap add name vif7-br3 mode tap
+sudo ip link set vif7-br3 up
+sudo ip link set vif7-br3 master br3
+
+
+
+
+sudo ip tuntap add name vif1-br4 mode tap
+sudo ip link set vif1-br4 up
+sudo ip link set vif1-br4 master br4
+sudo ip tuntap add name vif2-br4 mode tap
+sudo ip link set vif2-br4 up
+sudo ip link set vif2-br4 master br4
+sudo ip tuntap add name vif3-br4 mode tap
+sudo ip link set vif3-br4 up
+sudo ip link set vif3-br4 master br4
+sudo ip tuntap add name vif4-br4 mode tap
+sudo ip link set vif4-br4 up
+sudo ip link set vif4-br4 master br4
+sudo ip tuntap add name vif5-br4 mode tap
+sudo ip link set vif5-br4 up
+sudo ip link set vif5-br4 master br4
+sudo ip tuntap add name vif6-br4 mode tap
+sudo ip link set vif6-br4 up
+sudo ip link set vif6-br4 master br4
+sudo ip tuntap add name vif7-br4 mode tap
+sudo ip link set vif7-br4 up
+sudo ip link set vif7-br4 master br4
