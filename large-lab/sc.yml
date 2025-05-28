@@ -1,0 +1,198 @@
+name: sc
+
+topology:
+  nodes:
+    p1:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    p2:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    p3:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    p4:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    ar1:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    ar2:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    ar3:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    ar4:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    i1:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    i2:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    cr1:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    cr2:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    cr3:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    cr4:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    se1:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    se2:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    se3:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    se4:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    pn1:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    pn2:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    pn3:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    pn4:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    ie1:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    ie2:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    ie3:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    ie4:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    c1:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    c2:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    i3:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    i4:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    server1:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    server2:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.1.1
+
+    br1:
+      kind: bridge
+
+    br2:
+      kind: bridge
+
+    br3:
+      kind: bridge
+
+    br4:
+      kind: bridge
+  links:
+    - endpoints: ["p1:Gi0-0-0-0","p2:Gi0-0-0-0"]
+    - endpoints: ["p1:Gi0-0-0-1","ar1:Gi0-0-0-1"]
+    - endpoints: ["p2:Gi0-0-0-1","ar2:Gi0-0-0-1"]       
+    - endpoints: ["ar1:Gi0-0-0-0","ar2:Gi0-0-0-0"]   
+    - endpoints: ["ar1:Gi0-0-0-2","cr1:Gi0-0-0-2"]       
+    - endpoints: ["ar2:Gi0-0-0-2","cr2:Gi0-0-0-2"]  
+    - endpoints: ["cr1:Gi0-0-0-3","cr2:Gi0-0-0-3"]  
+    - endpoints: ["p3:Gi0-0-0-0","p4:Gi0-0-0-0"]      
+    - endpoints: ["p3:Gi0-0-0-1","ar3:Gi0-0-0-1"]    
+    - endpoints: ["p4:Gi0-0-0-1","ar4:Gi0-0-0-1"]       
+    - endpoints: ["ar3:Gi0-0-0-0","ar4:Gi0-0-0-0"]   
+    - endpoints: ["ar3:Gi0-0-0-2","cr3:Gi0-0-0-2"]       
+    - endpoints: ["ar4:Gi0-0-0-2","cr4:Gi0-0-0-2"]  
+    - endpoints: ["cr3:Gi0-0-0-3","cr4:Gi0-0-0-3"]  
+    - endpoints: ["i2:Gi0-0-0-0","cr3:Gi0-0-0-4"]                
+    - endpoints: ["i2:Gi0-0-0-1","cr4:Gi0-0-0-4"] 
+    - endpoints: ["i1:Gi0-0-0-0","cr1:Gi0-0-0-4"]                
+    - endpoints: ["i1:Gi0-0-0-1","cr2:Gi0-0-0-4"] 
+    - endpoints: ["cr1:Gi0-0-0-5","cr3:Gi0-0-0-5"]                  
+    - endpoints: ["cr2:Gi0-0-0-5","cr4:Gi0-0-0-5"]   
+    - endpoints: ["cr1:Gi0-0-0-6","se1:Gi0-0-0-6"]      
+    - endpoints: ["cr2:Gi0-0-0-6","se2:Gi0-0-0-6"]     
+    - endpoints: ["se1:Gi0-0-0-0","se2:Gi0-0-0-0"]      
+    - endpoints: ["cr3:Gi0-0-0-6","se3:Gi0-0-0-6"]      
+    - endpoints: ["cr4:Gi0-0-0-6","se4:Gi0-0-0-6"]     
+    - endpoints: ["se3:Gi0-0-0-0","se4:Gi0-0-0-0"]    
+    - endpoints: ["pn1:Gi0-0-0-0","pn2:Gi0-0-0-0"]          
+    - endpoints: ["pn1:Gi0-0-0-1","c1:Gi0-0-0-1"]       
+    - endpoints: ["pn2:Gi0-0-0-2","c1:Gi0-0-0-2"]           
+    - endpoints: ["ie1:Gi0-0-0-0","ie2:Gi0-0-0-0"]          
+    - endpoints: ["ie1:Gi0-0-0-1","i3:Gi0-0-0-1"]       
+    - endpoints: ["ie2:Gi0-0-0-2","i3:Gi0-0-0-2"]           
+    - endpoints: ["pn3:Gi0-0-0-0","pn4:Gi0-0-0-0"]          
+    - endpoints: ["pn3:Gi0-0-0-1","c2:Gi0-0-0-1"]       
+    - endpoints: ["pn4:Gi0-0-0-2","c2:Gi0-0-0-2"]           
+    - endpoints: ["ie3:Gi0-0-0-0","ie4:Gi0-0-0-0"]          
+    - endpoints: ["ie3:Gi0-0-0-1","i4:Gi0-0-0-1"]       
+    - endpoints: ["ie4:Gi0-0-0-2","i4:Gi0-0-0-2"]      
+    - endpoints: ["p1:Gi0-0-0-7","br1:vif1-br1"]
+    - endpoints: ["p2:Gi0-0-0-7","br1:vif3-br1"]
+    - endpoints: ["p3:Gi0-0-0-7","br2:vif1-br2"]
+    - endpoints: ["p4:Gi0-0-0-7","br2:vif3-br2"]
+    - endpoints: ["pn1:Gi0-0-0-7","br3:vif1-br3"]
+    - endpoints: ["pn2:Gi0-0-0-7","br3:vif2-br3"]    
+    - endpoints: ["ie1:Gi0-0-0-7","br3:vif4-br3"]
+    - endpoints: ["ie2:Gi0-0-0-7","br3:vif5-br3"]  
+    - endpoints: ["se1:Gi0-0-0-7","br3:vif6-br3"]
+    - endpoints: ["se2:Gi0-0-0-7","br3:vif7-br3"]    
+    - endpoints: ["pn3:Gi0-0-0-7","br4:vif1-br4"]
+    - endpoints: ["pn4:Gi0-0-0-7","br4:vif2-br4"]    
+    - endpoints: ["ie3:Gi0-0-0-7","br4:vif4-br4"]
+    - endpoints: ["ie4:Gi0-0-0-7","br4:vif5-br4"]
+    - endpoints: ["se3:Gi0-0-0-7","br4:vif6-br4"]
+    - endpoints: ["se4:Gi0-0-0-7","br4:vif7-br4"]
