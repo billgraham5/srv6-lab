@@ -141,6 +141,23 @@ topology:
 
     br4:
       kind: bridge
+
+      host1:
+        kind: cisco_xrd
+        image: ios-xr/xrd-control-plane:25.1.1
+
+      host2:
+        kind: cisco_xrd
+        image: ios-xr/xrd-control-plane:25.1.1
+
+      host3:
+        kind: cisco_xrd
+        image: ios-xr/xrd-control-plane:25.1.1  
+
+      host4:
+        kind: cisco_xrd
+        image: ios-xr/xrd-control-plane:25.1.1
+
   links:
     - endpoints: ["p1:Gi0-0-0-0","p2:Gi0-0-0-0"]
     - endpoints: ["p1:Gi0-0-0-1","ar1:Gi0-0-0-1"]
@@ -196,3 +213,8 @@ topology:
     - endpoints: ["ie4:Gi0-0-0-7","br4:vif5-br4"]
     - endpoints: ["se3:Gi0-0-0-7","br4:vif6-br4"]
     - endpoints: ["se4:Gi0-0-0-7","br4:vif7-br4"]
+    - endpoints: ["host1:Gi0-0-0-0","br1:vif2-br1"]
+    - endpoints: ["host2:Gi0-0-0-0","br2:vif2-br2"]
+    - endpoints: ["host3:Gi0-0-0-0","br3:vif3-br3"]
+    - endpoints: ["host4:Gi0-0-0-0","br4:vif3-br4"]
+
