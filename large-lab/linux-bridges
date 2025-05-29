@@ -2,15 +2,22 @@
 # Create the bridge
 sudo ip link add name br1 type bridge
 
+# Bring the bridge up
+sudo ip link set br1 up
+
 # Create the virtual ethernet interface
 sudo ip tuntap add name vif1-br1 mode tap
 
-# Bring it up
+# Bring the virtual interface up
 sudo ip link set vif1-br1 up
 
 # Link the virtual interface to the bridge
 sudo ip link set vif1-br1 master br1
 
+# Assign an IP address to a bridge, if needed for testing
+ sudo ip addr add 10.1.1.2/24 dev br1
+
+# install brctl for additional CLI visibility
 
 # edit, copy, and paste to create the topology
 
