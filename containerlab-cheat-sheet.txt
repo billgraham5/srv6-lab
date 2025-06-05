@@ -23,6 +23,8 @@ CTRL P, CTRL Q
 
 docker images
 
+sudo docker load -i sros.tar.gz
+
 # show memory usage per container
 
 docker stats
